@@ -1,0 +1,36 @@
+<HTML>
+
+<HEAD>
+<TITLE>Espectrometro</TITLE>
+</HEAD>
+
+<BODY>
+<!-- include main graphing routines.  This is more efficient than including the
+     code in-line here, since the browser can cache it and not have to load it
+     every time. -->
+<SCRIPT SRC="graph.js"></SCRIPT>
+
+
+<!-- this is the CANVAS element, which is available in browsers which
+     conform to HTML 5.  There are other ways of generating graphics on
+     web browsers, such as SVG and even having the Rabbit construct a
+     PNG file, but none of these are as simple and convenient as this
+     feature. -->
+<canvas id="graph" width="400" height="300">
+Sorry, your browser doesn't support canvas tag, so we can't show graphics :-(
+</canvas>
+
+
+<!-- the json() command sends an entire RabbitWeb root structure in one
+     fell swoop, and it's in a format that JavaScript understands directly.
+     Here, we send the "thermo" variable which contains everything necessary
+     for generating the time series graph. -->
+<SCRIPT>
+graph(<?z json($espectroWeb) ?>.espectroWeb);
+</SCRIPT>
+
+
+
+</BODY>
+</HTML>
+
